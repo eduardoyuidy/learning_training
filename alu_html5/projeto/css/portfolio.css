@@ -1,0 +1,28 @@
+.portfolio {
+    display: -webkit-flex;
+}
+
+.portfolio li:first-child {
+    /*width: 100%;*/
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+}
+
+.portfolio li {
+    border: .4em solid black;
+    background-color: #FAFFFC;
+    /*width: 45%;*/
+    /*box-sizing: border-box;
+    padding: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;*/
+    /*flex-wrap: wrap;
+    flex: 1 1 45%;*/
+
+    flex-wrap: wrap;
+}
+
+.portfolio img {
+    width: 100%;
+    box-shadow: 0 0 6px #000;
+}
