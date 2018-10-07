@@ -1,0 +1,8 @@
+banana
+melancia
+pera
+morango
+abacaxi
+batata
+kiwi
+uva
