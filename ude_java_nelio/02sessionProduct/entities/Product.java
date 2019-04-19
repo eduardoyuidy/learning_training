@@ -6,6 +6,22 @@ public class Product {
 	public double price;
 	public int quantity;
 	
+	// Constructor padrão da classe mantido, mesmo que estejamos fazendo sobrecarga de métodos construtores.
+	public Product() { }
+	
+	// Constructor da classe Product recebendo 3 parâmetros
+	public Product(String name, double price, int quantity) {
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+	
+	// Constructor da classe Product recebendo 2 parâmetros 
+	public Product(String name, double price) {
+		this.name = name;
+		this.price = price;
+	}
+	
 	public double totalValueInStock() {		
 		return this.price * this.quantity;		
 	}
