@@ -2,9 +2,9 @@ package entities;
 
 public class Product {
 
-	public String name;
-	public double price;
-	public int quantity;
+	private String name;
+	private double price;
+	private int quantity;
 	
 	// Constructor padrão da classe mantido, mesmo que estejamos fazendo sobrecarga de métodos construtores.
 	public Product() { }
@@ -22,6 +22,28 @@ public class Product {
 		this.price = price;
 	}
 	
+	// Definição de métodos get e set
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	public double getPrice() {
+		return this.price;
+	}
+	
+	public int getQuantity() {
+		return this.quantity;
+	}
+	
+	// Métodos de negócio da aplicação
 	public double totalValueInStock() {		
 		return this.price * this.quantity;		
 	}
