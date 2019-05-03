@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import entities.Employee;
 
@@ -51,22 +52,22 @@ public class ExerciseList01 {
 		System.out.print("Enter the employee id that will have salary increase: ");
 		int idIncrease = sc.nextInt();
 		
-		System.out.print("Enter the percentage: ");
-		Double percent = sc.nextDouble();
-		
-		boolean found = false;
-		
-		// Increase Employee's salary		
-		for (Employee obj : employeeList) {
-			if (obj.getId() == idIncrease) {
-				found = true;
-				obj.increaseSalary(percent);
+		// Check if the Employee's id is in the List
+		if (employeeList.stream().filter(x -> x.getId() == idIncrease).findFirst().orElse(null) != null) {
+			
+			System.out.print("Enter the percentage: ");
+			Double percent = sc.nextDouble();
+			
+			// Increase Employee's salary		
+			for (Employee obj : employeeList) {
+				if (obj.getId() == idIncrease) { 
+					obj.increaseSalary(percent);
+				}
 			}
-		}
-		
-		if (found == false) {
+		} else {
 			System.out.println("This id does not exist!");
 		}
+		
 		
 		System.out.println("");
 		System.out.println("List of employees:");
