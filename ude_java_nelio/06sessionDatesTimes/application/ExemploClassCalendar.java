@@ -8,8 +8,7 @@ import java.util.Date;
 public class ExemploClassCalendar {
 
 	public static void main(String[] args) {
-		
-		/* Teste commit git bash */
+
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
 		Date d = Date.from(Instant.parse("2019-05-04T07:42:29Z"));
