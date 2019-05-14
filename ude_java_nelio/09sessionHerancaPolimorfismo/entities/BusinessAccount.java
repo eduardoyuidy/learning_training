@@ -16,6 +16,7 @@ public class BusinessAccount extends Account {
 		this.loanLimit = loanLimit;
 	}
 
+	// Getters and Setters
 	public Double getLoanLimit() {
 		return loanLimit;
 	}
@@ -24,9 +25,16 @@ public class BusinessAccount extends Account {
 		this.loanLimit = loanLimit;
 	}
 	
+	// Methods	
 	public void loan(Double amount) {
 		if (amount <= this.loanLimit) {			
 			this.balance += amount - 10.0;
 		}
+	}
+	
+	@Override
+	public void withdraw(Double amount) {
+		super.withdraw(amount);
+		this.balance -= 2.0;
 	}
 }
