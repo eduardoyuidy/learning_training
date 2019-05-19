@@ -27,22 +27,20 @@ public class Program04Exercise {
 			System.out.print("Name: ");
 			String employeeName = sc.nextLine();
 			System.out.print("Hours: ");
-			Integer employeeHours = sc.nextInt();
+			int employeeHours = sc.nextInt();
 			System.out.print("Value per hour: ");
-			Double employeeValuePerHour = sc.nextDouble();
+			double employeeValuePerHour = sc.nextDouble();
 			
 			if (outsourced == 'y') {
 				System.out.print("Additional charge: ");
 				Double employeeAdditionalCharge = sc.nextDouble();
 				
-				employeeList.add(new OutsourcedEmployee(employeeName, employeeHours, employeeValuePerHour, employeeAdditionalCharge));
-				
-				// System.out.printf("%s - %d - %.2f - %s - %.2f %n", employeeName, employeeHours, employeeValuePerHour, outsourced, employeeAdditionalCharge);
+				employeeList.add(
+						new OutsourcedEmployee(employeeName, employeeHours, employeeValuePerHour, employeeAdditionalCharge)
+						);
 			} else {
 				
 				employeeList.add(new Employee(employeeName, employeeHours, employeeValuePerHour));
-			
-				// System.out.printf("%s - %d - %.2f - %s%n", employeeName, employeeHours, employeeValuePerHour, outsourced);
 			}
 		}
 		
