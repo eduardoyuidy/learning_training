@@ -9,14 +9,10 @@ public class Program02 {
 	public static void main (String[] args) {
 		
 		String path = "C:\\TempY\\in.txt";
-		BufferedReader br = null;
-		FileReader fr = null;
 		
-		try {
-			
-			fr = new FileReader(path);
-			br = new BufferedReader(fr);
-			
+		// Try-with-resources 		
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+				
 			String line = br.readLine();
 			
 			while (line != null) {
@@ -26,19 +22,6 @@ public class Program02 {
 		}
 		catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());
-		}
-		finally {
-			try {				
-				if (fr != null) {
-					fr.close();
-				}
-				if (br != null) {
-					br.close();
-				}
-			}
-			catch (IOException e) {
-				System.out.println(e.getStackTrace());
-			}
-		}
+		}		
 	}
 }
