@@ -1,18 +1,26 @@
 package application;
 
-import devices.Printer;
-import devices.Scanner;
+import devices.ComboDevice;
+import devices.ConcretePrinter;
+import devices.ConcreteScanner;
 
 public class Program03ProblemaDiamante {
 
 	public static void main(String[] args) {
 		
-		Printer p = new Printer("1007");
+		ConcretePrinter p = new ConcretePrinter("1007");
 		p.processDoc("My letter");
 		p.print("My letter");
+		System.out.println();
 		
-		Scanner s = new Scanner("2000");
+		ConcreteScanner s = new ConcreteScanner("2000");
 		s.processDoc("My Email");
 		System.out.println("Scan result: " + s.scan());
+		System.out.println();
+		
+		ComboDevice cb = new ComboDevice("3000");
+		cb.processDoc("My Document");
+		cb.print("My Document");
+		System.out.println("Scan result: " + cb.scan());
 	}
 }
