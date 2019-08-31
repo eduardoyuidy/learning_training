@@ -17,12 +17,14 @@ public class RentalService {
 	}
 	
 	public void processInvoice(CarRental carRental) {
+		
 		long t1 = carRental.getStart().getTime();
 		long t2 = carRental.getFinish().getTime();
 						
 		double hours = (double) (t2 - t1) / 1000 / 60 / 60;
 		
 		double basePayment;
+		
 		if (hours <= 12.0) {
 			basePayment = Math.ceil(hours) * pricePerHour;
 		}

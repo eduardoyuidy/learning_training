@@ -11,17 +11,22 @@ public class ContractService {
 	private OnlinePaymentService onlinePaymentService; 
 	
 	public ContractService(OnlinePaymentService onlinePaymentService) { 
+		
 		this.onlinePaymentService = onlinePaymentService;
 	}
 	
 	public void processContract(Contract contract, int months) {
 		
-		Double basicQuota = contract.getTotalValue() / months;
-		
-		for (int count = 1; count <= months; count++) {			
-			Date dateInstallment = addMonth(contract.getDate(), count);						
+		Double basicQuota = contract.getTotalValue() / months;		
+			
+		for (int count = 1; count <= months; count++) {
+			
+			Date dateInstallment = addMonth(contract.getDate(), count);
+			
 			double updatedQuota = basicQuota + this.onlinePaymentService.interest(basicQuota, count);
+			
 			double fullQuota = updatedQuota + this.onlinePaymentService.paymentFee(updatedQuota);
+			
 			contract.addInstallment(new Installment(dateInstallment, fullQuota));
 		}
 	}
