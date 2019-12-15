@@ -1,0 +1,30 @@
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title>Fundamentos de Angular</title>
+        <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+        <script type="text/javascript">
+            angular.module('app', []);
+            // Criação do controller, e importado as dependências para o controle '$scope', todas as dependências devem ser inseridas para o método criado ao final, no caso
+            // se existisse outras dependencias elas teriam que ser colocadas antes do método criado, e passadas em sequencia para o método.
+            // No caso abaixo, estamos utilizando o $scope como intermediação para comunicar entre a View e o controller.
+            angular.module('app').controller('MeuController', [
+                '$scope',
+                function($scope) {
+                    $scope.value = 10;
+                    $scope.inc = function() {
+                        $scope.value++;
+                    }
+                }
+            ])            
+        </script>
+    </head>
+    <body> 
+        <!-- Para ativar o controller que possuirá o controle no template, utilizamos a diretiva ng-controller -->
+        <div ng-controller='MeuController'>
+            <h1>{{ value }}</h1>
+            <input ng-model="value">
+            <button ng-click="inc()">Increase</button>
+        </div>
+    </body>
+</html>

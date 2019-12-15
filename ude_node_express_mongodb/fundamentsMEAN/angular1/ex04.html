@@ -1,0 +1,29 @@
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title>Fundamentos de Angular</title>
+        <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+        <script type="text/javascript">
+            angular.module('app', []);
+            /* Seguindo o styleguide do Johnpapa, foi criado um controller e não utilizado o '$scope' para comunicação entre View e controller. Passamos a utilizar uma referência 'self' para 
+               o Controller (this) e atribuimos as propriedades e métodos à ela. Em seguida referênciamos através de um Alias o controller. */
+            angular.module('app').controller('MeuController', [
+                function() {
+                    const self = this;
+                    self.value = 10;
+                    self.inc = function() {
+                        self.value++;
+                    }
+                }
+            ])
+        </script>
+    </head>
+    <body>         
+        <!-- Para ativar o controller que possuirá o controle no template, utilizamos a diretiva ng-controller, além disto, utilizado o alias ctrl para comunicação entre View e Controller. -->
+        <div ng-controller='MeuController as ctrl'>
+            <h1>{{ ctrl.value }}</h1>
+            <input ng-model="ctrl.value" />
+            <button ng-click="ctrl.inc()">Increase</button>
+        </div>
+    </body>
+</html>
