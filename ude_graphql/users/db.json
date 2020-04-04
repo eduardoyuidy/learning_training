@@ -1,0 +1,15 @@
+{
+  "users": [
+    { "id": "23", "firstName": "Eduardo", "age": 32, "companyId": "1" },
+    { "id": "82", "firstName": "Poliane", "age": 29, "companyId": "3" },
+    { "id": "92", "firstName": "Elaine", "age": 27, "companyId": "4" },
+    { "id": "150", "firstName": "Tiago", "age": 29, "companyId": "1" },
+    { "id": "15", "firstName": "Pedro", "age": 29, "companyId": "2" }    
+  ], 
+  "companies": [
+    { "id": "1", "name": "Facebook", "description": "Social" },
+    { "id": "2", "name": "Apple", "description": "Hardware" },
+    { "id": "3", "name": "Google", "description": "Search" },
+    { "id": "4", "name": "Amazon", "description": "E-commerce" }
+  ]
+}
