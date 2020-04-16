@@ -15,13 +15,14 @@ class SongList extends Component {
         // Here we use this approach (this.props.data.refetch()) instead of the 'refetchQueries' because here we just wants to query the queries associated with this 'SongList' component.
         this.props.data.refetch();
       })
-  }
+  };
 
   renderSongs() {
     return this.props.data.songs.map(({ id, title }) => {
       return (
         <li key={id} className="collection-item">
-          {title}
+          <Link to={`/songs/${id}`}>{title}</Link>
+          
           <i 
             className="material-icons"
             onClick={() => this.onSongDelete(id)}
