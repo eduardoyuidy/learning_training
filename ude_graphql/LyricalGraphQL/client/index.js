@@ -11,7 +11,12 @@ import SongList from './components/SongList';
 import SongCreate from './components/SongCreate';
 import SongDetail from './components/SongDetail';
 
-const client = new ApolloClient({});
+// Enable to Apollo - Refresh the data --> Using 'dataIdFromObject' we are passing to the ApolloClient where is 
+// the id for our data, that way apollo can use this id to check if in any mutation may update our data, apollo can ask to the graphql to re-run da query based 
+// on the id. So every mutation that we run, should always ask the 'id' on the return.
+const client = new ApolloClient({
+  dataIdFromObject: o => o.id
+});
 
 const Root = () => {
   return (
